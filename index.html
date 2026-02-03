@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Position Size Calculator</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-bg: #0f172a; 
+            --card-bg: #1e293b; 
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-soft: #38bdf8; 
+            --button-bg: #334155; 
+            --button-hover: #475569;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden; 
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column; /* Stack header and card vertically */
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+        }
+
+        /* --- New Header Wrapper --- */
+        .app-container {
+            width: 95%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between title and calculator */
+        }
+
+        .calculator-header {
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(to bottom right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.025em;
+        }
+
+        .calculator-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 5px 0 0 0;
+        }
+
+        #root {
+            width: 100%;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            max-height: 80vh; /* Adjusted to leave room for title */
+            overflow-y: auto;
+        }
+
+        /* Scrollbar styling */
+        #root::-webkit-scrollbar { width: 6px; }
+        #root::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 10px;
+        }
+
+        .loading-text {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 20px;
+        }
+
+        /* UI Overrides for the React App */
+        .MuiInputBase-root {
+            background-color: rgba(15, 23, 42, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+        
+        .MuiButton-root {
+            background-color: var(--button-bg) !important;
+            color: var(--text-main) !important;
+            border-radius: 8px !important;
+            text-transform: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .MuiButton-root:hover {
+            background-color: var(--button-hover) !important;
+            border-color: var(--accent-soft) !important;
+        }
+
+        .MuiToggleButton-root.Mui-selected {
+            background-color: rgba(56, 189, 248, 0.2) !important;
+            color: var(--accent-soft) !important;
+            border: 1px solid var(--accent-soft) !important;
+        }
+
+        .MuiTypography-root, label {
+            color: var(--text-muted) !important;
+        }
+
+        /* Branding removal */
+        a[href*="vematrader.com"], 
+        img[src*="vemaTradingSimple.png"] {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="calculator-header">
+            <h1>Position Size Calculator</h1>
+            <p>Risk Management & Trade Planning</p>
+        </header>
+
+        <div id="root">
+            <p class="loading-text">Initializing Secure Interface...</p>
+        </div>
+    </div>
+
+    <script src="https://positionsize-calc.s3.ap-southeast-2.amazonaws.com/posCalculator.js"></script>
+
+</body>
+</html>
